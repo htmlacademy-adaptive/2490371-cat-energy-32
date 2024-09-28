@@ -3,66 +3,81 @@
 }
 
 .contacts__item {
-  margin: 20px 0;
-
-  &:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 0;
-    height: 1px;
+  @media (max-width: $tablet-width - 1) {
     width: calc(100% - 40px);
-    background-color: rgba(217, 217, 217, 1);
+
+    padding-top: 19px;
+    padding-bottom: 20px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(217, 217, 217, 1);
+    }
+
+    &:first-child {
+      padding-top: 40px;
+    }
+
+    &:last-child {
+      padding-top: 11px;
+    }
   }
-}
-
-.contacts__logo {
-  display: flex;
-  padding-top: 40px;
-  padding-bottom: 20px;
-
-  mask-image: url("../../images/logo-title-mobile.svg");
-  width: 101px;
-  height: 20px;
-  mask-position: left;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  background-color: rgba(17, 17, 17, 1);
-  transition: background-color 0.3s ease-in-out;
 
   @media (min-width: $tablet-width) {
-    mask-image: url("../../images/logo-title-tablet.svg");
-    width: 128px;
-    height: 24px;
+    &:first-child {
+      padding-left: 30px;
+    }
 
-    margin-left: 110px;
-    padding: 0 160px 0 110px;
+    &:last-child {
+      padding-right: 30px;
+    }
   }
 
   @media (min-width: $desktop-width) {
-    mask-image: url("../../images/logo-title-desktop.svg");
+    &:first-child {
+      padding-left: 110px;
+    }
 
-    padding: 0 416px 0 110px;
-  }
-
-  &:is(:hover, :focus-visible, :focus) {
-    background-color: #68b738;
-  }
-
-  &:active {
-    opacity: 0.6;
+    &:last-child {
+      padding-right: 110px;
+    }
   }
 }
 
 .contacts__social-list {
   display: flex;
   justify-content: center;
-  width: 100%;
+
+  @media (min-width: $tablet-width) {
+    padding-right: 125px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-right: 381px;
+  }
+}
+
+.contacts__logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 13px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0 160px 0 30px;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 416px 0 110px;
+  }
 }
 
 .contacts__copyright {
   display: flex;
-  width: 168px;
-  height: 40px;
+  width: 100%;
+
+  @media (min-width: $tablet-width) {
+    flex: 1;
+    justify-content: space-between;
+  }
 }
